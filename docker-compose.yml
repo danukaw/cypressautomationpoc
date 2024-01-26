@@ -1,0 +1,7 @@
+version: '3'
+services:
+  cypress:
+    image: caas-cypress:1.0.0
+    working_dir: /caas-cypress-automation-poc
+    volumes:
+      - .:/caas-cypress-automation-poc

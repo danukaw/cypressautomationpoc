@@ -1,0 +1,39 @@
+{
+  "name": "danuka-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "pino": "latest",
+    "pino-pretty": "^10.3.1"
+  },
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
+    "cypress": "^12.14.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "scripts": {
+    "triggerAllTests-headless": "npx cypress run",
+    "triggerAllTests-headed": "npx cypress run --headed",
+    "triggerAllTests-chrome": "npx cypress run --browser chrome",
+    "triggerAllTests-webderiveruni-dashboard": "npx cypress run --spec cypress/e2e/webdrive-uni/* --record --key 10ea4252-b4d9-4af2-9c48-560fd50ebb1d",
+    "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/e2e/webdrive-uni/*",
+    "triggerAllTests-automationstore": "npx cypress run --spec cypress/e2e/automationteststore/*",
+    "triggerAllTests-automationstoree-dashboard": "npx cypress run --spec cypress/e2e/automationteststore/* --record --key 10ea4252-b4d9-4af2-9c48-560fd50ebb1d",
+    "junit-merge": "",
+    "delete-junit-report": "",
+    "delete-results": "",
+    "mochawesome-merge": "",
+    "delete-mochawesome-report": "",
+    "cypress-regression-pack": "npm run delete-results && delete-mochawesome-report && npm run triggerAllTests-headless && npm run mochawesome-merge",
+    "triggerAllTest-stagging": "npx cypress run --spec cypress/e2e/webdrive-uni/contact-us.js --env configFile=stagging",
+    "cy:verify": "npx cypress verify",
+    "cy:info": "npx cypress info"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions/"
+  },
+  "author": "",
+  "license": "ISC"
+}
